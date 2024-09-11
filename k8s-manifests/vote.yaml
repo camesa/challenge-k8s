@@ -15,17 +15,17 @@ spec:
         app: vote
     spec:
       containers:
-      - name: vote
-        image: camesa/vote:latest
-        ports:
-        - containerPort: 80
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 500m
-            memory: 512Mi
+        - name: vote
+          image: camesa/vote:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
 ---
 # vote-service
 apiVersion: v1
@@ -40,7 +40,7 @@ spec:
       port: 80
       targetPort: 80
       nodePort: 30000
-    type: NodePort
+  type: NodePort
 ---
 # vote-hpa
 apiVersion: autoscaling/v2
@@ -55,7 +55,7 @@ spec:
   minReplicas: 1
   maxReplicas: 3
   metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      targetAverageUtilization: 50
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 50

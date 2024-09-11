@@ -15,17 +15,17 @@ spec:
         app: result
     spec:
       containers:
-      - name: result
-        image: camesa/result:latest
-        ports:
-        - containerPort: 80
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 500m
-            memory: 512Mi
+        - name: result
+          image: camesa/result:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
 ---
 # result-service
 apiVersion: v1
@@ -39,7 +39,7 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-    type: NodePort
+  type: NodePort
 ---
 # result-hpa
 apiVersion: autoscaling/v2
@@ -54,7 +54,7 @@ spec:
   minReplicas: 1
   maxReplicas: 3
   metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      targetAverageUtilization: 50
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 50
