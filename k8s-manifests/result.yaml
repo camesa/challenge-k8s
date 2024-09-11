@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: result
+  name: despliegue-result
 spec:
   replicas: 1
   selector:
@@ -31,7 +31,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: result
+  name: servicio-result
 spec:
   selector:
     app: result
@@ -44,12 +44,12 @@ spec:
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: result-hpa
+  name: hpa-result
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: result
+    name: despliegue-result
   minReplicas: 1
   maxReplicas: 3
   metrics:
