@@ -15,33 +15,20 @@ spec:
         app: worker
     spec:
       containers:
-      - name: worker
-        image: camesa/worker:latest
-        ports:
-        - containerPort: 80
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 500m
-            memory: 512Mi
----
-# worker-service
-apiVersion: v1
-kind: Service
-metadata:
-  name: servicio-worker
-spec:
-  selector:
-    app: worker
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
+        - name: worker
+          image: camesa/worker:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
 ---
 # worker-hpa
-apiVersion: autoscaling/v2beta1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: hpa-worker
@@ -53,7 +40,7 @@ spec:
   minReplicas: 1
   maxReplicas: 3
   metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      targetAverageUtilization: 50
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 50

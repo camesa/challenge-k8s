@@ -39,9 +39,10 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
+    type: NodePort
 ---
 # result-hpa
-apiVersion: autoscaling/v2beta1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: hpa-result
