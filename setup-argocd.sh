@@ -27,4 +27,4 @@ argocd app create voting-app --repo https://github.com/camesa/challenge-k8s.git 
 # Sync the application
 argocd app sync voting-app
 
-echo "Instalacion y configuración de ArgoCD terminada. La aplicación ha sido deployada"
+echo "Instalacion y configuración de ArgoCD terminada. La aplicación ha sido desplegada"
