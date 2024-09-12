@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: worker
-          image: camesa/worker:latest
+          image: camesa/worker
           ports:
             - containerPort: 80
           resources:

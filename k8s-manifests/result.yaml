@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: result
-          image: camesa/result:latest
+          image: camesa/result
           ports:
             - containerPort: 80
           resources:
