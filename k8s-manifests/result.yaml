@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: result
-          image: camesa/result
+          image: camesa/voting-app-result:latest
           ports:
             - containerPort: 80
           resources:
