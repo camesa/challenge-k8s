@@ -40,6 +40,7 @@ ARGO_PWD=$(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath=
 echo "ArgoCD Admin Password: $ARGO_PWD"
 
 # Login a ArgoCD
+sleep 5
 argocd login localhost:8000 --insecure --username admin --password $ARGO_PWD  || handle_error "Login a ArgoCD"
 
 # Crear la aplicación en ArgoCD
