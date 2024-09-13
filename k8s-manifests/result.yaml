@@ -40,4 +40,3 @@ spec:
       port: 80
       targetPort: 80
   type: NodePort
-        targetAverageUtilization: 50
