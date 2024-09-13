@@ -1,12 +1,14 @@
 # Voting App - Kubernetes Deployment
 
 Este repositorio contiene los archivos de configuración de Kubernetes necesarios para desplegar la aplicación voting-app (https://github.com/camesa/SRE-challenge-infra) utilizando ArgoCD para la gestión continua de la implementación.
+El script `setup-argocd.sh` realiza la instalación integra de ArgoCD en un cluster de `Minikube` y la configuración necesaria desplegar la aplicación voting-app.
 
 ## Requerimientos Previos
 
-1. [Minikube](https://minikube.sigs.k8s.io/docs/start/)
-2. [kubectl](https://kubernetes.io/docs/tasks/tools/)
-3. [curl](https://curl.se/)
+1. [Docker](https://app.docker.com)
+2. [Minikube](https://minikube.sigs.k8s.io/docs/start/)
+3. [kubectl](https://kubernetes.io/docs/tasks/tools/)
+4. [curl](https://curl.se/)
 
 ## Componentes
 
